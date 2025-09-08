@@ -11,12 +11,6 @@ A machine learning project for forecasting electricity prices using real-world d
 - **Reproducible Research**: Clean structure with notebooks and raw dataset preserved.
 
 ---
-
-## 📁 Key Files
-- `notebooks/Electricity_Price_Prediction.ipynb` — main notebook (code unchanged, only renamed for clarity).
-- `data/Group_C_Electric_Price_Prediction.zip` — original dataset archive (unchanged).
-- `data/Group_C_Electric_Price_Prediction/` — extracted dataset for convenience.
-
 ---
 
 ## ✨ Skills Demonstrated
@@ -26,7 +20,4 @@ A machine learning project for forecasting electricity prices using real-world d
 
 ---
 
-## ℹ️ Notes
-- Dependencies are intentionally not pinned since **no code edits** were requested. Install libraries as imported in the notebook.
-- All uploaded code and data remain **unchanged** aside from file renaming for professional presentation.
 
