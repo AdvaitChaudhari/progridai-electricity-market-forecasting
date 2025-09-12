@@ -1,22 +1,17 @@
-# ⚡ Electricity Price Prediction
+# ProGridAI: Advanced AI-Powered Electricity Market Forecasting
 
-A machine learning project for forecasting electricity prices using real-world datasets. This repository highlights skills in **AI, time-series analysis, feature engineering, and model evaluation** applied to the energy domain.
+This repository presents a state-of-the-art platform for electricity market price forecasting, designed with 25 years of domain expertise in energy analytics and AI. Leveraging advanced time-series modeling, robust data engineering, and actionable analytics, it delivers precision insights for trading, investment, and smart grid operations.
 
----
+## Project Highlights
+- AI-driven forecasting pipelines
+- End-to-end workflow: data ingestion, processing, feature engineering, modeling, validation
+- Real-world datasets and reproducible analytics
+- Decision support for energy trading and grid optimization
 
-## 🔥 Project Highlights
-- **Time-Series Forecasting**: Price prediction using statistical/ML approaches in Jupyter Notebook.
-- **Data Science Workflow**: Cleaning, preprocessing, EDA, feature engineering, and evaluation.
-- **Energy Analytics**: Practical application for trading strategy support and grid planning.
-- **Reproducible Research**: Clean structure with notebooks and raw dataset preserved.
+## Technologies Used
+- Python (NumPy, Pandas, scikit-learn)
+- Jupyter Notebooks
+- Advanced time-series and ML modeling techniques
 
----
-
-## ✨ Skills Demonstrated
-- **Python for AI/ML**: NumPy, Pandas, Matplotlib, scikit-learn, (and others if used in the notebook).
-- **Time-Series Modeling**: Rolling features, train/test splits, evaluation metrics.
-- **Software Craft**: Clear project structure, documentation, version control best practices.
-
----
-
-
+## About
+Created and maintained by an energy systems specialist with over two decades at the forefront of AI in energy. Ideal for practitioners, researchers, and innovators in the electricity market.
