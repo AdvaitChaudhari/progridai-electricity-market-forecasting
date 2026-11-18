@@ -1,39 +1,33 @@
-# ProGridAI: Electricity Market Forecasting
+# Electricity price forecasting – Spanish day-ahead market
 
-Welcome to **ProGridAI**, a professional-grade platform for advanced electricity market price forecasting. Developed with over 25 years of expertise in artificial intelligence, energy analytics, and time-series modeling, this repository provides robust, scalable solutions for traders, grid operators, and energy researchers.
+Next-hour electricity price forecast for Spain (2015–2018), comparing an LSTM, a 1D-CNN and a
+persistence baseline.
 
-## 📊 Project Overview
-This project provides AI-powered, enterprise-grade solutions for forecasting electricity market prices. Leveraging advanced time-series modeling and machine learning, it delivers reliable predictions to support:
-- Energy trading strategies
-- Grid operation and planning
-- Investment decision-making
-- Market risk analysis
+**Data:** the public *Hourly energy demand, generation, prices and weather – Spain* dataset
+(ENTSO-E / REE market data plus OpenWeather data for five cities; I use Madrid).
 
-## 🏆 Key Outcomes
-- **Accurate Electricity Price Forecasts:** Improve trading returns and reduce grid imbalance risks.
-- **Data-Driven Insights:** Extract actionable intelligence from large-scale, real-world energy datasets.
-- **Automation:** End-to-end pipelines from data ingestion to model deployment.
-- **Energy Sector Innovation:** Enhance decision-making for utilities, market analysts, and energy technology firms.
+**Approach**
+- join energy and weather data on the hourly UTC timestamp
+- features: price, total load, onshore wind, solar generation, temperature, humidity, wind speed, hour (sin/cos), weekend flag
+- 24-hour look-back windows, chronological 70/15/15 split, scaling fitted on train only
+- LSTM vs 1D-CNN, both with early stopping; persistence as the baseline
 
-This repository demonstrates 25+ years of professional expertise in building robust, scalable analytics tools for the energy market.
+**Results (test period, €/MWh)**
 
-## 🛠️ Skills & Technologies Used
-- **Python (NumPy, Pandas, scikit-learn):** Selected for its powerful data manipulation, analysis, and scalable machine learning capabilities.
-- **Jupyter Notebooks:** Used for interactive data exploration, prototyping, and clear presentation of analyses and results.
-- **Time-Series Modeling (ARIMA, LSTM, Gradient Boosting):** Deployed for exceptional forecasting performance on temporal electricity price data.
-- **Data Engineering & Feature Engineering:** Applied for input data integrity, advanced feature extraction, and model optimization.
-- **Version Control (Git):** Maintained for collaborative, reproducible, and professional code development.
+| Model | MAE | RMSE |
+|---|---|---|
+| Persistence | 1.97 | 2.88 |
+| **LSTM** | **1.72** | **2.28** |
+| 1D-CNN | 2.75 | 3.52 |
 
-## 🎯 Why These Skills?
-Industry-standard tools ensure this project is technically advanced, highly usable, and transparent—meeting enterprise-level energy forecasting requirements.
+**Things I noticed**
+- The LSTM beats persistence by about 13 % MAE. The 1D-CNN does *worse* than persistence, so the convolution over 24 h
+  doesn't capture the price dynamics as well as the recurrent model.
+- Hourly price is strongly autocorrelated, so persistence is already a decent baseline.
+- High wind output pushes prices down (merit-order effect), which shows up clearly in the correlations.
 
-## 📈 How to Use
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Explore the `notebooks/` directory for end-to-end examples.
+**Next steps:** a full 24-hour day-ahead forecast in one shot, and gas/CO₂ prices as inputs.
 
-## 🔍 About
-Created and maintained by an energy systems specialist with 25+ years of leadership in AI and analytics for the energy sector. For collaboration or inquiries, please contact the maintainer.
+Files: `Electricity_Price_Prediction.ipynb`, `energy_dataset.csv`, `weather_features.csv`, report: `Gr_C_Energy_Price_Forecast.pdf`
+
+*University group project (Group C), M.Sc. Smart Energy Systems.*
